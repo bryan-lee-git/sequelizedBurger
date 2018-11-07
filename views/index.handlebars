@@ -1,0 +1,58 @@
+<h1>🍔 BURGERLOGGER 🍔 </h1><br/>
+
+<div class="row z-depth-1 white" style="padding:30px;border-radius:8px;">
+    <div class="col s12">
+        <ul class="tabs green lighten-4 z-depth-1" style="border-radius:8px;">
+            <li class="tab col s4"><a style="font-weight:bolder;" class="green-text" href="#add">Add Burgers</a></li>
+            <li class="tab col s4"><a style="font-weight:bolder;" class="active green-text" href="#eat">Burgers To Eat</a></li>
+            <li class="tab col s4"><a style="font-weight:bolder;" class="green-text" href="#eaten">Burgers Eaten</a></li>
+        </ul>
+    </div>
+
+    <div id="add" class="col s12">
+        <br/>
+        <h3 style="font-weight:bolder;">Add A Burger!</h3>
+        <br/>
+        <form id="create-form">
+            <div class="input-field center-align">
+                <label id="burger-label" for="burger">Enter the name of your burger...</label>
+                <input type="text" id="burger" name="name" />
+            </div>
+            Has The Burger Been Eaten?
+            <label>
+                <input class="green darken-1 with-gap" type="radio" name="eaten" value="0" checked/><span>Not yet!</span>
+            </label>
+            <label>
+                <input class="green darken-1 with-gap" type="radio" name="eaten" value="1" /><span>Yep. It was delicous.</span>
+            </label>
+            <br/><br/><br/>
+            <button class="green darken-1 btn z-depth-4" type="submit" style="width:100%;">Submit Burger</button>
+        </form>
+    </div>
+
+    <div id="eat" class="col s12 center-align">
+        <br/>
+        <h3 style="font-weight:bolder;">Eat A Burger!</h3>
+        <br/>
+        <ul>
+            {{#each burgers}}
+                {{#unless dataValues.eaten}}
+                    {{> burgers/burger-block eaten=true}}
+                {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
+
+    <div id="eaten" class="col s12">
+        <br/>
+        <h3 style="font-weight:bolder;">Eaten Burgers!</h3>
+        <br/>
+        <ul>
+            {{#each burgers}}
+                {{#if dataValues.eaten}}
+                    {{> burgers/burger-block eaten=false}}
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
