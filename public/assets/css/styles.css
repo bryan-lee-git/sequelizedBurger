@@ -4,6 +4,10 @@ body {
     flex-direction: column;
 }
 
+.dropdown-content li>span {
+    color: forestgreen !important;
+}
+
 main {
     flex: 1 0 auto;
 }

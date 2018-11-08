@@ -8,7 +8,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-require("./routes/burgersController.js")(app);
+require("./routes/burger-api-routes.js")(app);
+require("./routes/customer-api-routes.js")(app);
+require("./routes/site-routes.js")(app);
 const db = require("./models");
 db.sequelize.sync({ force: false }).then(() => {
     app.listen(PORT, () => {

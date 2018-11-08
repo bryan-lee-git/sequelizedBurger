@@ -1,10 +1,11 @@
+<script src="/assets/js/burgers.js"></script>
 <h1>🍔 BURGERLOGGER 🍔 </h1><br/>
 
 <div class="row z-depth-1 white" style="padding:30px;border-radius:8px;">
     <div class="col s12">
         <ul class="tabs green lighten-4 z-depth-1" style="border-radius:8px;">
             <li class="tab col s4"><a style="font-weight:bolder;" class="green-text" href="#add">Add Burgers</a></li>
-            <li class="tab col s4"><a style="font-weight:bolder;" class="active green-text" href="#eat">Burgers To Eat</a></li>
+            <li class="tab col s4"><a style="font-weight:bolder;" class="green-text" href="#eat">Burgers To Eat</a></li>
             <li class="tab col s4"><a style="font-weight:bolder;" class="green-text" href="#eaten">Burgers Eaten</a></li>
         </ul>
     </div>
@@ -34,6 +35,14 @@
         <br/>
         <h3 style="font-weight:bolder;">Eat A Burger!</h3>
         <br/>
+        <div id="current-customer" class="input-field col s12">
+            <select>
+                {{#each customers}}
+                    <option data-id="{{dataValues.id}}">{{dataValues.name}}</option>
+                {{/each}}
+            </select>
+            <label>Who will eat the burger?</label>
+        </div>
         <ul>
             {{#each burgers}}
                 {{#unless dataValues.eaten}}

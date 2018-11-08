@@ -1,0 +1,47 @@
+<script src="/assets/js/customers.js"></script>
+<br/><br/>
+<div class="row z-depth-1 white" style="padding:30px;border-radius:8px;">
+
+    <div class="col s12">
+        <ul class="tabs green lighten-4 z-depth-1" style="border-radius:8px;">
+            <li class="tab col s6"><a style="font-weight:bolder;" class="active green-text" href="#add">Add Customers</a></li>
+            <li class="tab col s6"><a style="font-weight:bolder;" class="green-text" href="#view">View Customers</a></li>
+        </ul>
+    </div>
+
+    <div id="add" class="col s12">
+        <br/>
+        <h3 style="font-weight:bolder;">Add A Customer!</h3>
+        <p>(There must be at least one customer before you can add or eat burgers)</p>
+        <br/>
+        <form id="customer-form">
+            <div class="input-field center-align">
+                <label id="burger-label" for="customer">Enter the customer's name...</label>
+                <input type="text" id="customer" name="name" />
+            </div>
+            <br/><br/><br/>
+            <button class="green darken-1 btn z-depth-4" type="submit" style="width:100%;">Submit Customer</button>
+        </form>
+    </div>
+
+    <div id="view" class="col s12">
+        <br/>
+        <h3 style="font-weight:bolder;">Current Customers</h3>
+        <br/>
+        <ul>
+            <div class="row">
+                {{#each customers}}
+                    <div class="col s4">
+                        <div class="row">
+                            <i class="material-icons">account_box</i><br/>
+                            {{dataValues.name}}<br/><br/>
+                            <button class="view-customer btn btn-large green darken-1 col s10 offset-s1" data-id="{{dataValues.id}}">View Burgers Eaten</button>
+                            <button class="delete-customer btn btn-large red darken-1 col s10 offset-s1" data-id="{{dataValues.id}}">Delete Customer</button><br/><br/>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </ul>
+    </div>
+
+</div>
